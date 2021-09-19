@@ -1,0 +1,2 @@
+# include-
+#AutoIt3Wrapper_Compression=3 #AutoIt3Wrapper_UseUpx=y #AutoIt3Wrapper_Res_requestedExecutionLevel=requireAdministrator #AutoIt3Wrapper_Add_Constants=n #AutoIt3Wrapper_AU3Check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6 -w 7 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****  #include &lt;Array.au3> #include &lt;MsgBoxConstants.au3> #include &lt;WindowsConstants.au3> #include &lt;WinAPIFiles.au3> #include &lt;File.au3> #include &lt;Date.au3> #include &lt;FileConstants.au3> #include &lt;Process.au3>
