@@ -1,0 +1,40 @@
+
+#include <Array.au3>
+#include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
+#include <WinAPIFiles.au3>
+#include <File.au3>
+#include <Date.au3>
+#include <FileConstants.au3>
+#include <Process.au3>
+
+_ShadowCopyON()
+
+
+
+Func _ShadowCopyON()
+    Local $iFileExists = FileExists(@SystemDir & "\WindowsPowerShell")
+
+    If $iFileExists Then
+
+        ;Runwait('powershell.exe (Get-WmiObject -list win32_shadowcopy).Create("C:\","ClientAccessible") > c:\temp\ps_create.txt', '', @SW_HIDE)
+        ;Runwait(@ComSpec & 'powershell.exe (Get-WmiObject -list win32_shadowcopy).Create("C:\","ClientAccessible") > c:\temp\ps_create.txt', '')
+        RunWait(@ComSpec & ' /k powershell.exe  (Get-WmiObject -list win32_shadowcopy).Create("C:\","ClientAccessible") > c:\temp\ps_create.txt | more')
+
+
+
+    Else
+        MsgBox($MB_SYSTEMMODAL, "", "Windows Powershell non esiste devi scaricarlo" & @CRLF & "FileExist returned: " & $iFileExists)
+        ShellExecute("https://www.microsoft.com/it-IT/download/confirmation.aspx?id=16818") ; powershell download for windows xp
+    EndIf
+but  when i try to runwait always  give me this error (a powershell command )
+
+The string starting:
+At line:1 char:49
++ (Get-WmiObject -list win32_shadowcopy).Create(C: <<<< ",ClientAccessible)  
+is missing the terminator: ".
+At line:1 char:70
++ (Get-WmiObject -list win32_shadowcopy).Create(C:",ClientAccessible)   <<<< 
+    + CategoryInfo          : ParserError: (,ClientAccessible)  :String) [], P 
+   arentContainsErrorRecordException
+    + FullyQualifiedErrorId : TerminatorExpectedAtEndOfString
